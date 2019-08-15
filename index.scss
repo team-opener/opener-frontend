@@ -29,10 +29,17 @@ body {
   background: #fff;
   width: 100%;
   margin: 0 auto;
+}
+.header-container {
+  display: flex;
+  padding: 0.8rem;
+  .nav-logo {
+    height: 2.6rem;
+    margin-right: 1rem;
+  }
   h1 {
     font-size: 2.6rem;
     font-weight: bold;
-    padding: 0.8rem;
   }
   &.active {
     position: fixed;
@@ -52,11 +59,12 @@ body {
     display: inline-block;
     padding: 0.6rem 1.6rem 0.6rem 0;
     font-weight: bold;
+    color: black;
     &:visited {
       color: black;
     }
     &:hover {
-      color: grey;
+      color: #0074dd;
     }
   }
 }
@@ -68,16 +76,32 @@ body {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-  .item {
+  .card {
     background-color: #fff;
-    border-left: 10px solid #0074dd;
     border-radius: 8px;
-    display: flex;
-    justify-content: flex-start;
     box-sizing: border-box;
     padding: 0.6rem 0.8rem;
     margin: 0.4rem 0;
     box-shadow: 2px 2px 16px #a5a5a5;
+  }
+
+  .graph {
+    & > h3 {
+      font-weight: bold;
+      font-size: 1.3rem;
+      padding: 0 0.4rem;
+      border-left: 5px solid #0074dd;
+    }
+    .graph-container {
+      margin: 0.4rem;
+      width: 100%;
+    }
+  }
+
+  .item {
+    border-left: 10px solid #0074dd;
+    display: flex;
+    justify-content: flex-start;
     .profile-img {
       width: 6rem;
       height: 6rem;

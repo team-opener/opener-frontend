@@ -33,13 +33,24 @@ body {
   margin: 0 auto;
 }
 
-.page-header h1 {
-  font-size: 2.6rem;
-  font-weight: bold;
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding: 0.8rem;
 }
 
-.page-header.active {
+.header-container .nav-logo {
+  height: 2.6rem;
+  margin-right: 1rem;
+}
+
+.header-container h1 {
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+.header-container.active {
   position: fixed;
   top: 0;
   left: 0;
@@ -65,6 +76,7 @@ body {
   display: inline-block;
   padding: 0.6rem 1.6rem 0.6rem 0;
   font-weight: bold;
+  color: black;
 }
 
 .nav-bar a:visited {
@@ -72,7 +84,7 @@ body {
 }
 
 .nav-bar a:hover {
-  color: grey;
+  color: #0074dd;
 }
 
 .item-list {
@@ -85,22 +97,37 @@ body {
   margin-bottom: 1rem;
 }
 
-.item-list .item {
+.item-list .card {
   background-color: #fff;
-  border-left: 10px solid #0074dd;
   border-radius: 8px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0.6rem 0.8rem;
   margin: 0.4rem 0;
   -webkit-box-shadow: 2px 2px 16px #a5a5a5;
           box-shadow: 2px 2px 16px #a5a5a5;
+}
+
+.item-list .graph > h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0 0.4rem;
+  border-left: 5px solid #0074dd;
+}
+
+.item-list .graph .graph-container {
+  margin: 0.4rem;
+  width: 100%;
+}
+
+.item-list .item {
+  border-left: 10px solid #0074dd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .item-list .item .profile-img {
