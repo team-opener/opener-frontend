@@ -1,0 +1,19 @@
+body {
+    background: skyblue;
+}
+.profile {
+    background: blue;
+    width: 100%;
+    display: flex
+}
+.profile__image {
+    width: 200px;
+    height: 200px;
+    background: blueviolet;
+}
+.profile__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+}
