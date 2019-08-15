@@ -52,20 +52,24 @@ const homePage = () => {
 
 // mypage페이지에서 사용할 함수 
 const mypagePage = () => {
+  const userTitleEle = document.querySelector('.user_title')
+
   fetch(BACK + '/user/info?name=Ingleby')
   .then(res => res.json())
   .then(data => {
     console.log(data)
-    const ITEM_CARD = `<li class="item card">
-        <div class="profile-img">
-          <img src="${path}" alt="profile-image" />
-        </div>
-        <div class="item-desc">
-          <h3 class="user-name">${v.name}</h3>
-          <p class="course-name">${v.course}</p>
-          <p class="entry-time">${v.entryTime}</p>
-        </div>
-        </li>`
+    var path = BACK + data.profileImgPath
+    const USER_CARD = `<div class="item card">
+    <div class="profile-img">
+      <img src="${path}" alt="profile-image" />
+    </div>
+    <div class="item-desc">
+      <h3 class="user-name">${data.name}</h3>
+      <p class="course-name">${data.course}</p>
+      <p class="entry-time">${data.entryTime}</p>
+    </div>
+  </div>`
+    userTitleEle.insertAdjacentHTML('beforeend', USER_CARD) 
   })
 }
 
