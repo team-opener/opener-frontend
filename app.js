@@ -173,6 +173,7 @@ const mypagePage = () => {
 }
 
 // application 초기화 
+import calendarHeatmap from "./calendar-heatmap/calendar-heatmap.js";
 const PATH = window.location.pathname
 const BACK = 'http://192.168.1.68:3000'
 const ITEM_CARD = `<li class="item card">
@@ -186,3 +187,31 @@ const ITEM_CARD = `<li class="item card">
 </div>
 </li>`
 appInit()
+
+var now = moment()
+  .endOf("day")
+  .toDate();
+var yearAgo = moment()
+  .startOf("day")
+  .subtract(1, "year")
+  .toDate();
+var chartData = d3.timeDays(yearAgo, now).map(function(dateElement) {
+  return {
+    date: dateElement,
+    count:
+      dateElement.getDay() !== 0 && dateElement.getDay() !== 6
+        ? Math.floor(Math.random() * 60)
+        : Math.floor(Math.random() * 10)
+  };
+});
+
+var chart1 = calendarHeatmap()
+  .data(chartData)
+  .selector("#heatMap")
+  .colorRange(["#D8E6E7", "#0074dd"])
+  .tooltipEnabled(true)
+  .onClick(function(data) {
+    console.log("onClick callback. Data:", data);
+  });
+
+chart1(); // render the chart
