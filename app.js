@@ -2,11 +2,9 @@ const appInit = () => {
   fixHeader();
   switch(true) {
     case /index/.test(PATH):
-      console.log('reg index');
       homePage();
       break;
     case /mypage/.test(PATH):
-      console.log('reg mypage');
       mypagePage();
       break;
   }
@@ -154,7 +152,6 @@ const mypagePage = () => {
   fetch(BACK + '/user/info?name=Ingleby')
   .then(res => res.json())
   .then(data => {
-    console.log(data)
     var path = BACK + data.profileImgPath
     const USER_CARD = `<div class="item card">
     <div class="profile-img">
@@ -168,8 +165,36 @@ const mypagePage = () => {
   </div>`
     userTitleEle.insertAdjacentHTML('beforeend', USER_CARD) 
   })
+
   drawingChart()
 
+  var now = moment()
+  .endOf("day")
+  .toDate();
+  var yearAgo = moment()
+  .startOf("day")
+  .subtract(1, "year")
+  .toDate();
+  var chartData = d3.timeDays(yearAgo, now).map(function(dateElement) {
+  return {
+    date: dateElement,
+    count:
+      dateElement.getDay() !== 0 && dateElement.getDay() !== 6
+        ? Math.floor(Math.random() * 60)
+        : Math.floor(Math.random() * 10)
+  };
+  });
+
+  var chart1 = calendarHeatmap()
+  .data(chartData)
+  .selector("#heatMap")
+  .colorRange(["#D8E6E7", "#0074dd"])
+  .tooltipEnabled(true)
+  .onClick(function(data) {
+    console.log("onClick callback. Data:", data);
+  });
+
+  chart1(); // render the chart
 }
 
 // application 초기화 
@@ -187,31 +212,3 @@ const ITEM_CARD = `<li class="item card">
 </div>
 </li>`
 appInit()
-
-var now = moment()
-  .endOf("day")
-  .toDate();
-var yearAgo = moment()
-  .startOf("day")
-  .subtract(1, "year")
-  .toDate();
-var chartData = d3.timeDays(yearAgo, now).map(function(dateElement) {
-  return {
-    date: dateElement,
-    count:
-      dateElement.getDay() !== 0 && dateElement.getDay() !== 6
-        ? Math.floor(Math.random() * 60)
-        : Math.floor(Math.random() * 10)
-  };
-});
-
-var chart1 = calendarHeatmap()
-  .data(chartData)
-  .selector("#heatMap")
-  .colorRange(["#D8E6E7", "#0074dd"])
-  .tooltipEnabled(true)
-  .onClick(function(data) {
-    console.log("onClick callback. Data:", data);
-  });
-
-chart1(); // render the chart
