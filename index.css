@@ -118,9 +118,10 @@ body {
 .item-list .graph .graph-container {
   margin: 0.4rem;
   width: 100%;
+  overflow-x: scroll;
 }
 
-.item-list .item {
+.item {
   border-left: 10px solid #0074dd;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -130,7 +131,7 @@ body {
           justify-content: flex-start;
 }
 
-.item-list .item .profile-img {
+.item .profile-img {
   width: 6rem;
   height: 6rem;
   overflow: hidden;
@@ -138,24 +139,63 @@ body {
   border-radius: 12px;
 }
 
-.item-list .item .item-desc {
+.item .item-desc {
   margin-left: 1rem;
 }
 
-.item-list .item .item-desc .user-name {
+.item .item-desc .user-name {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
 
-.item-list .item .item-desc .course-name {
+.item .item-desc .course-name {
   font-size: 0.8rem;
   color: #4f4f4f;
   margin-bottom: 1rem;
 }
 
-.item-list .item .item-desc .entry-time {
+.item .item-desc .entry-time {
   font-size: 0.8rem;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+  fill: black;
+  stroke: #fff;
+}
+
+.dot-start {
+  fill: #ffab00;
+}
+
+.dot-end {
+  fill: #d42a63;
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 3;
+}
+
+.line-start {
+  stroke: #ffab00;
+}
+
+.line-end {
+  stroke: #d42a63;
+}
+
+.dot.focus {
+  fill: #fff;
+  stroke: #0074dd;
+  stroke-width: 4px;
 }
 
 @media only screen and (max-width: 480px) {

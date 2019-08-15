@@ -95,38 +95,73 @@ body {
     .graph-container {
       margin: 0.4rem;
       width: 100%;
+      overflow-x: scroll;
     }
   }
+}
+.item {
+  border-left: 10px solid #0074dd;
+  display: flex;
+  justify-content: flex-start;
+  .profile-img {
+    width: 6rem;
+    height: 6rem;
+    overflow: hidden;
+    background-color: grey;
+    border-radius: 12px;
+  }
 
-  .item {
-    border-left: 10px solid #0074dd;
-    display: flex;
-    justify-content: flex-start;
-    .profile-img {
-      width: 6rem;
-      height: 6rem;
-      overflow: hidden;
-      background-color: grey;
-      border-radius: 12px;
+  .item-desc {
+    margin-left: 1rem;
+    .user-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.4rem;
     }
-
-    .item-desc {
-      margin-left: 1rem;
-      .user-name {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.4rem;
-      }
-      .course-name {
-        font-size: 0.8rem;
-        color: #4f4f4f;
-        margin-bottom: 1rem;
-      }
-      .entry-time {
-        font-size: 0.8rem;
-      }
+    .course-name {
+      font-size: 0.8rem;
+      color: #4f4f4f;
+      margin-bottom: 1rem;
+    }
+    .entry-time {
+      font-size: 0.8rem;
     }
   }
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+  fill: black;
+  stroke: #fff;
+  &-start {
+    fill: #ffab00;
+  }
+  &-end {
+    fill: #d42a63;
+  }
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 3;
+  &-start {
+    stroke: #ffab00;
+  }
+  &-end {
+    stroke: #d42a63;
+  }
+}
+
+.dot.focus {
+  fill: #fff;
+  stroke: #0074dd;
+  stroke-width: 4px;
 }
 
 @media only screen and (max-width: 480px) {
