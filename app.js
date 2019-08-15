@@ -137,7 +137,8 @@ const homePage = () => {
         <div class="item-desc">
           <h3 class="user-name">${v.name}</h3>
           <p class="course-name">${v.course}</p>
-          <p class="entry-time">${v.entryTime}</p>
+          <p class="entry-time">entry time : ${v.entryTime}</p>
+          <p class="exit-time">exit time : ${v.exitTime}</p>
         </div>
         </li>`
       itemList.insertAdjacentHTML('beforeend', ITEM_CARD)
