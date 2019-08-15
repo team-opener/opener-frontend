@@ -1,0 +1,112 @@
+@import url("./reset.css");
+
+html {
+  font: 112.5%/1.45em georgia, serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+body {
+  background: #e2e2e2;
+  color: hsla(0, 0%, 0%, 0.8);
+  font-family: sans-serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.page-header {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  margin: 0 auto;
+  h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    padding: 0.8rem;
+  }
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 2px 16px #a1a1a1;
+  }
+}
+.nav-bar {
+  background: #fff;
+  ul {
+    padding: 0.8rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+  a {
+    display: inline-block;
+    padding: 0.6rem 1.6rem 0.6rem 0;
+    font-weight: bold;
+    &:visited {
+      color: black;
+    }
+    &:hover {
+      color: grey;
+    }
+  }
+}
+
+.item-list {
+  margin: 0.8rem;
+  & > h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .item {
+    background-color: #fff;
+    border-left: 10px solid #0074dd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 0.6rem 0.8rem;
+    margin: 0.4rem 0;
+    box-shadow: 2px 2px 16px #a5a5a5;
+    .profile-img {
+      width: 6rem;
+      height: 6rem;
+      overflow: hidden;
+      background-color: grey;
+      border-radius: 12px;
+    }
+
+    .item-desc {
+      margin-left: 1rem;
+      .user-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 0.4rem;
+      }
+      .course-name {
+        font-size: 0.8rem;
+        color: #4f4f4f;
+        margin-bottom: 1rem;
+      }
+      .entry-time {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 100%;
+  }
+}
