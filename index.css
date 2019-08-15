@@ -78,32 +78,8 @@ body {
     border-left: 5px solid #0074dd; }
   .item-list .graph .graph-container {
     margin: 0.4rem;
-    width: 100%; }
-  .item-list .item {
-    border-left: 10px solid #0074dd;
-    display: flex;
-    justify-content: flex-start; }
-    .item-list .item .profile-img {
-      width: 6rem;
-      height: 6rem;
-      overflow: hidden;
-      background-color: grey;
-      border-radius: 12px; }
-      .item-list .item .profile-img img {
-        width: 100%;
-        height: 100%; }
-    .item-list .item .item-desc {
-      margin-left: 1rem; }
-      .item-list .item .item-desc .user-name {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.4rem; }
-      .item-list .item .item-desc .course-name {
-        font-size: 0.8rem;
-        color: #4f4f4f;
-        margin-bottom: 1rem; }
-      .item-list .item .item-desc .entry-time {
-        font-size: 0.8rem; }
+    width: 100%;
+    overflow-x: scroll; }
 
 .item {
   border-left: 10px solid #0074dd;
@@ -115,6 +91,9 @@ body {
     overflow: hidden;
     background-color: grey;
     border-radius: 12px; }
+    .item .profile-img img {
+      width: 100%;
+      height: 100%; }
   .item .item-desc {
     margin-left: 1rem; }
     .item .item-desc .user-name {

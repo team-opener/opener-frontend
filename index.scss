@@ -95,44 +95,10 @@ body {
     .graph-container {
       margin: 0.4rem;
       width: 100%;
-    }
-  }
-
-  .item {
-    border-left: 10px solid #0074dd;
-    display: flex;
-    justify-content: flex-start;
-    .profile-img {
-      width: 6rem;
-      height: 6rem;
-      overflow: hidden;
-      background-color: grey;
-      border-radius: 12px;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .item-desc {
-      margin-left: 1rem;
-      .user-name {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 0.4rem;
-      }
-      .course-name {
-        font-size: 0.8rem;
-        color: #4f4f4f;
-        margin-bottom: 1rem;
-      }
-      .entry-time {
-        font-size: 0.8rem;
-      }
+      overflow-x: scroll;
     }
   }
 }
-
 .item {
   border-left: 10px solid #0074dd;
   display: flex;
@@ -143,6 +109,10 @@ body {
     overflow: hidden;
     background-color: grey;
     border-radius: 12px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .item-desc {
