@@ -1,3 +1,5 @@
+import calendarHeatmap from "./calendar-heatmap/calendar-heatmap.js";
+
 const fixHeader = () => {
   const target = document.querySelector("#targetHeader");
   const targetHeight = target.offsetHeight;
@@ -15,7 +17,10 @@ const fixHeader = () => {
 
 let weekNumb = 5;
 let margin = { top: 20, right: 25, bottom: 20, left: 25 },
-  width = 460 - margin.left - margin.right,
+  width =
+    document.querySelector("#lineChart").offsetWidth -
+    margin.left -
+    margin.right,
   height = 400 - margin.top - margin.bottom;
 let xScale = d3
   .scaleBand()
@@ -107,3 +112,31 @@ drawLine({
   classNameLine: "line-end",
   classNameDot: "dot-end"
 });
+
+var now = moment()
+  .endOf("day")
+  .toDate();
+var yearAgo = moment()
+  .startOf("day")
+  .subtract(1, "year")
+  .toDate();
+var chartData = d3.timeDays(yearAgo, now).map(function(dateElement) {
+  return {
+    date: dateElement,
+    count:
+      dateElement.getDay() !== 0 && dateElement.getDay() !== 6
+        ? Math.floor(Math.random() * 60)
+        : Math.floor(Math.random() * 10)
+  };
+});
+
+var chart1 = calendarHeatmap()
+  .data(chartData)
+  .selector("#heatMap")
+  .colorRange(["#D8E6E7", "#0074dd"])
+  .tooltipEnabled(true)
+  .onClick(function(data) {
+    console.log("onClick callback. Data:", data);
+  });
+
+chart1(); // render the chart
